@@ -261,7 +261,7 @@ jobs:
 #       # Checkout code from git
 #       - run:
 #           name: Install dependencies
-#           command: |
+#           command: |  
 #             # your code here
 #       - run:
 #           name: Update cloudfront distribution
