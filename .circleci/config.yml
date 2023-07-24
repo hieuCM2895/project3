@@ -139,24 +139,15 @@ jobs:
     executor:
       name: node/default
     steps:
+      - checkout
+      - node/install-packages
+      - run:
+          command: |
+            exit 1
       - slack/notify:
           channel: general
-          custom: |
-            {
-              "blocks": [
-                {
-                  "type": "section",
-                  "fields": [
-                    {
-                      "type": "plain_text",
-                      "text": "*This is a text notification*",
-                      "emoji": true
-                    }
-                  ]
-                }
-              ]
-            }
-          event: always
+          event: fail
+          template: basic_fail_1
 
   # deploy-infrastructure:
   #   docker:
