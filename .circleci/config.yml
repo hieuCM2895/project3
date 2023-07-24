@@ -116,9 +116,13 @@ jobs:
 
   scan-backend:
     docker:
-      - image: circleci/node:5.1.0
+      - image: cimg/base:stable
     steps:
       - checkout
+      - node/install:
+          install-yarn: true
+          node-version: '13.8.0'
+      - run: node --version
       - restore_cache:
           keys: [backend-build]
       - run:
